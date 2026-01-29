@@ -11,15 +11,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/lib/three/package.json</loc>
-    
-    <lastmod>2026-01-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/lib/three/README.html</loc>
     
     <lastmod>2026-01-29</lastmod>
@@ -30,6 +21,15 @@
   
   <url>
     <loc>http://example.com/lib/three/renovate.json</loc>
+    
+    <lastmod>2026-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/lib/three/package.json</loc>
     
     <lastmod>2026-01-29</lastmod>
     
