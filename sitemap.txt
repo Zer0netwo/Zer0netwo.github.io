@@ -1,2 +1,6 @@
+http://example.com/lib/pace/README.html
+http://example.com/lib/three/README.html
+http://example.com/lib/three/package.json
+http://example.com/lib/three/renovate.json
 http://example.com/2026/01/28/hello-world/
 http://example.com/
