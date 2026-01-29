@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff52ec;
+  background: #b585fc;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2343,59 +2343,6 @@ pre {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-.main-inner > .sub-menu .pagination,
-.main-inner > .post-block .pagination,
-.main-inner > .tabs-comment .pagination,
-.main-inner > .comments .pagination,
-.main-inner > .pagination {
-  background: rgba(245,245,245,0.42);
-}
-.main-inner > .sub-menu body,
-.main-inner > .post-block body,
-.main-inner > .tabs-comment body,
-.main-inner > .comments body,
-.main-inner > body {
-  color: #000;
-}
-.main-inner > .sub-menu .posts-expand .post-title-link,
-.main-inner > .post-block .posts-expand .post-title-link,
-.main-inner > .tabs-comment .posts-expand .post-title-link,
-.main-inner > .comments .posts-expand .post-title-link,
-.main-inner > .posts-expand .post-title-link {
-  color: #000;
-}
-.main-inner > .sub-menu .posts-expand .post-meta-container,
-.main-inner > .post-block .posts-expand .post-meta-container,
-.main-inner > .tabs-comment .posts-expand .post-meta-container,
-.main-inner > .comments .posts-expand .post-meta-container,
-.main-inner > .posts-expand .post-meta-container {
-  color: #f8f9fa;
-}
-.main-inner > .sub-menu .sidebar,
-.main-inner > .post-block .sidebar,
-.main-inner > .tabs-comment .sidebar,
-.main-inner > .comments .sidebar,
-.main-inner > .sidebar {
-  opacity: 0.85;
-}
-.main-inner > .sub-menu .header-inner,
-.main-inner > .post-block .header-inner,
-.main-inner > .tabs-comment .header-inner,
-.main-inner > .comments .header-inner,
-.main-inner > .header-inner {
-  background: rgba(255,255,255,0.8);
-}
-.main-inner > .sub-menu .popup,
-.main-inner > .post-block .popup,
-.main-inner > .tabs-comment .popup,
-.main-inner > .comments .popup,
-.main-inner > .popup {
-  opacity: 0.8;
-}
-.main-inner > .sub-menu .main-inner,
-.main-inner > .post-block .main-inner,
-.main-inner > .tabs-comment .main-inner,
-.main-inner > .comments .main-inner,
-.main-inner > .main-inner {
-  opacity: 0.8;
+:root {
+  --content-bg-color: rgba(255,255,255,0.902);
 }
