@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff1675;
+  background: #12b675;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2617,36 +2617,18 @@ pre {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-/* 主要内容区域 */
-.main-inner,
-.content {
+.header {
+  background: rgba(255,255,255,0.5) !important;
+}
+.sidebar {
+  background-color: rgba(255,255,255,0.5) !important;
+  border-radius: 20px;
+  box-shadow: transparent !important;
+  transition: transparent !important;
+}
+.sidebar .sidebar-inner {
   background: transparent !important;
 }
-/* 文章容器 */
-.posts-content,
-.article-container,
-.article-inner {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-/* 文章各部分 */
-.article-header,
-.article-title,
-.article-entry,
-.article-footer {
-  background: transparent !important;
-}
-/* 代码块特殊处理 */
-pre,
-code,
-.highlight {
-  background: rgba(0,0,0,0.2) !important; /* 半透明，保证可读性 */
-  backdrop-filter: blur(5px); /* 毛玻璃效果 */
-}
-/* 确保文字可读 */
-.article-entry * {
-  color: rgba(255,255,255,0.95) !important; /* 如果背景是深色 */
-/* 或 */
-  color: rgba(0,0,0,0.9) !important; /* 如果背景是浅色 */
+.post-block {
+  background-color: rgba(255,255,255,0.5) !important;
 }
