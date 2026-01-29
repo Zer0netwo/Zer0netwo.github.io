@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #5e0bff;
+  background: #fff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2617,31 +2617,37 @@ pre {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-.main-inner > .sub-menu,
-.main-inner > .post-block,
-.main-inner > .tabs-comment,
-.main-inner > .comments,
-.main-inner > .pagination {
-  background: rgba(245,245,245,0.42);
-}
-body {
-  color: #000;
-}
-.posts-expand .post-title-link {
-  color: #000;
-}
-.posts-expand .post-meta-container {
-  color: #c0c0c0;
+.header {
+  background: rgba(255,255,255,0.5) !important;
 }
 .sidebar {
-  opacity: 0.95;
+  background-color: rgba(255,255,255,0.5) !important;
+  border-radius: 20px;
+  box-shadow: transparent !important;
+  transition: transparent !important;
 }
-.header-inner {
-  background: rgba(255,255,255,0.8);
+.sidebar .sidebar-inner {
+  background: transparent !important;
 }
 .popup {
-  opacity: 1;
+  opacity: 0.7;
 }
-.main-inner {
-  opacity: 1;
+.post-block {
+  background-color: rgba(255,255,255,0.5) !important;
+}
+code,
+kbd,
+figure.highlight,
+pre {
+  background: rgba(255,255,255,0) !important;
+}
+tbody tr:nth-of-type(odd) {
+  background: rgba(249,249,249,0);
+}
+figure.highlight .gutter pre {
+  background: #ffc7c7 !important;
+  color: #191919;
+  padding-left: 10px /* 左边距 */;
+  padding-right: 10px /* 右边距 */;
+  text-align: right /* 右对齐 */;
 }
