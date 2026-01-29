@@ -1169,7 +1169,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #df0617;
+  background: #ff1675;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2617,37 +2617,36 @@ pre {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-.header {
-  background: rgba(255,255,255,0) !important;
-}
-.sidebar {
-  background-color: rgba(255,255,255,0) !important;
-  border-radius: 20px;
-  box-shadow: transparent !important;
-  transition: transparent !important;
-}
-.sidebar .sidebar-inner {
+/* 主要内容区域 */
+.main-inner,
+.content {
   background: transparent !important;
 }
-.popup {
-  opacity: 0.7;
+/* 文章容器 */
+.posts-content,
+.article-container,
+.article-inner {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
-.post-block {
-  background-color: rgba(255,255,255,0) !important;
+/* 文章各部分 */
+.article-header,
+.article-title,
+.article-entry,
+.article-footer {
+  background: transparent !important;
 }
+/* 代码块特殊处理 */
+pre,
 code,
-kbd,
-figure.highlight,
-pre {
-  background: rgba(255,255,255,0) !important;
+.highlight {
+  background: rgba(0,0,0,0.2) !important; /* 半透明，保证可读性 */
+  backdrop-filter: blur(5px); /* 毛玻璃效果 */
 }
-tbody tr:nth-of-type(odd) {
-  background: rgba(249,249,249,0);
-}
-figure.highlight .gutter pre {
-  background: #ffc7c7 !important;
-  color: #191919;
-  padding-left: 10px /* 左边距 */;
-  padding-right: 10px /* 右边距 */;
-  text-align: right /* 右对齐 */;
+/* 确保文字可读 */
+.article-entry * {
+  color: rgba(255,255,255,0.95) !important; /* 如果背景是深色 */
+/* 或 */
+  color: rgba(0,0,0,0.9) !important; /* 如果背景是浅色 */
 }
