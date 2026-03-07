@@ -76,7 +76,11 @@
   </style>
 </noscript>
 
-</head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -205,8 +209,8 @@
       
           <p>记录笔者学习数论知识的过程。</p>
 <h3 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h3><p>[a^{\phi(n)} \equiv 1 \pmod n]</p>
-<p>[\phi(n)]代表的是1到n中与n互质的数的个数，取集合X&#x3D;{[x_1,x_2,…x_{\phi(n)}]}来代表这些数</p>
-<p>另取集合M&#x3D;{[m_1,m_2,…m_{\phi(n)}]}，使[m_i&#x3D;a*x_i](取a与n互质)</p>
+<p>[\phi(n)]代表的是1到n中与n互质的数的个数，取集合X={[x<em>1,x_2,…x</em>{\phi(n)}]}来代表这些数</p>
+<p>另取集合M={[m<em>1,m_2,…m</em>{\phi(n)}]}，使[m_i=a*x_i](取a与n互质)</p>
 <p>即证明</p>
 <p>根据X集合中数的性质，首先是X中每个数都不相同，其次是X中每个数与n互质。</p>
 <p>要研究的是两集合在模n下的性质，再细究就是首先X中每个数模n都不同余，其次是X中每个数模n与n互质。</p>
@@ -217,73 +221,73 @@
 <li><p>M中每个数模n与n互质</p>
 </li>
 </ol>
-<p>​       因为[m_i&#x3D;a*x_i]，a、[x_i]都和n互质,</p>
+<p>​       因为[m_i=a*x_i]，a、[x_i]都和n互质,</p>
 <p>​       所以[m_i]也与n互质</p>
 <p>​       又因为扩展欧几里得定理</p>
-<p>​       所以gcd([m_i],n)&#x3D;gcd(n,[m_i \pmod n])&#x3D;1</p>
+<p>​       所以gcd([m_i],n)=gcd(n,[m_i \pmod n])=1</p>
 <p>得到M集合与X集合在模n下存在双射关系</p>
-<p>有[m_1∗m_2∗……∗m_{φ(n)}≡x_1∗x_2∗……∗x_{φ(n)}(modn)]</p>
-<p>[a∗x_1∗a∗x_2∗……∗a∗x_{φ(n)}≡x_1∗x_2∗……∗x_{φ(n)}(modn)]</p>
-<p>[a^{φ(n)}∗(x_1∗x_2……∗x_{φ(n)})≡x_1∗x_2……∗x_{φ(n)}(modn)]</p>
-<p>[a^{φ(n)−1}∗(x_1∗x_2……∗x_{φ(n)})≡0(modn)]</p>
-<p>然后，由于[(x_1∗x_2……∗x_{φ(n)})!≡0(modn)]</p>
+<p>有[m<em>1∗m_2∗……∗m</em>{φ(n)}≡x<em>1∗x_2∗……∗x</em>{φ(n)}(modn)]</p>
+<p>[a∗x<em>1∗a∗x_2∗……∗a∗x</em>{φ(n)}≡x<em>1∗x_2∗……∗x</em>{φ(n)}(modn)]</p>
+<p>[a^{φ(n)}∗(x<em>1∗x_2……∗x</em>{φ(n)})≡x<em>1∗x_2……∗x</em>{φ(n)}(modn)]</p>
+<p>[a^{φ(n)−1}∗(x<em>1∗x_2……∗x</em>{φ(n)})≡0(modn)]</p>
+<p>然后，由于[(x<em>1∗x_2……∗x</em>{φ(n)})!≡0(modn)]</p>
 <p>所以 [(a^{φ(n)}−1)≡0(modn)]</p>
 <p>所以 [a^{φ(n)}≡1(modn)]</p>
 <h3 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h3><p>对于质数p，任意整数a，均满足：[a^{p−1}≡1(modp)]</p>
 <p>拆开来看[a^{p−2}*a≡1(modp)],[a^{p−2}]就是a在模p下的逆元了</p>
 <h3 id="CRT"><a href="#CRT" class="headerlink" title="CRT"></a>CRT</h3><p>设正整数[m_1,m_2…m_k]两两互素，则同余方程组<br>[x≡a_1\pmod {m_1}]<br>[x≡a_2\pmod {m_2}]<br>[x≡a_3\pmod{m_3}]<br>…<br>[x≡a_k\pmod{m_k}]</p>
-<p>有整数解。并且在模M&#x3D;[m_1⋅m_2⋅…⋅m_k]下的解是唯一的，解为<br>x≡([a_1<em>M_1</em>M_1^{-1}+a_2<em>M_2</em>M_2^{-1}+…+a_k<em>M_k</em>M_k^{-1})modM]</p>
-<p>其中[M_i&#x3D;M&#x2F;m_i]，而[M_i为M_i模m_i的逆元。]</p>
+<p>有整数解。并且在模M=[m_1⋅m_2⋅…⋅m_k]下的解是唯一的，解为<br>x≡([a_1<em>M_1</em>M_1^{-1}+a_2<em>M_2</em>M_2^{-1}+…+a_k<em>M_k</em>M_k^{-1})modM]</p>
+<p>其中[M_i=M/m_i]，而[M_i为M_i模m_i的逆元。]</p>
 <p>举个例子来理解证明过程</p>
 <p>x≡2(mod3)</p>
 <p>x≡3(mod5)</p>
 <p>x≡2(mod7)</p>
-<p>令x&#x3D;a+b+c</p>
+<p>令x=a+b+c</p>
 <p>根据同余的加法：</p>
-<p>x%m1 &#x3D;(a+b+c)%m1&#x3D;(a%m1+b%m1+c%m1)%m1</p>
+<p>x%m1 =(a+b+c)%m1=(a%m1+b%m1+c%m1)%m1</p>
 <p>从接下来的取法当中可以看出：取a时，b、c必满足是m1的倍数，则满足x的一个解就得到了</p>
 <p>令</p>
 <p>a≡2(mod3)</p>
 <p>a≡0(mod5)</p>
 <p>a≡0(mod7)</p>
-<p>&#x3D;&gt; a&#x3D;5*7p&#x3D;35p（可以看到p取1的时候满足a≡2(mod3),即a&#x3D;35）</p>
+<p>=&gt; a=5*7p=35p（可以看到p取1的时候满足a≡2(mod3),即a=35）</p>
 <p>b≡0(mod3)</p>
 <p>b≡3(mod5)</p>
 <p>b≡0(mod7)</p>
-<p>&#x3D;&gt;b&#x3D;21q (可以看到q取3的时候满足b≡3(mod5),即b&#x3D;63)</p>
+<p>=&gt;b=21q (可以看到q取3的时候满足b≡3(mod5),即b=63)</p>
 <p>c≡0(mod3)</p>
 <p>c≡0(mod5)</p>
 <p>c≡2(mod7)</p>
-<p>&#x3D;&gt;c&#x3D;15m(可以看到m取2的时候满足c≡2(mod7),即c&#x3D;30)</p>
+<p>=&gt;c=15m(可以看到m取2的时候满足c≡2(mod7),即c=30)</p>
 <p>得到一个满足所有等式的x</p>
 <p>x≡2(mod3)≡a+b+c</p>
 <p>x≡3(mod5)≡a+b+c</p>
 <p>x≡2(mod7)≡a+b+c</p>
 <p>我们要得到通解，就要利用同余的乘法</p>
-<p>令2 * a’≡2(mod3),3 * b’≡3(mod5),2*c’≡2(mod7)</p>
+<p>令2 <em> a’≡2(mod3),3 </em> b’≡3(mod5),2*c’≡2(mod7)</p>
 <p>重复上述过程</p>
 <p>a′≡1(mod3)</p>
 <p>a′≡0(mod5)</p>
 <p>a′≡0(mod7)</p>
-<p>&#x3D;&gt;a′&#x3D;35p(可以看到p取2的时候满足a′≡1(mod3),即a′&#x3D;70)</p>
+<p>=&gt;a′=35p(可以看到p取2的时候满足a′≡1(mod3),即a′=70)</p>
 <p>b′≡0(mod3)</p>
 <p>b′≡1(mod5)</p>
 <p>b′≡0(mod7)</p>
-<p>&#x3D;&gt;b′&#x3D;21q(可以看到q取1的时候满足b′≡1(mod5),即b′&#x3D;21)</p>
+<p>=&gt;b′=21q(可以看到q取1的时候满足b′≡1(mod5),即b′=21)</p>
 <p>c′≡0(mod3)</p>
 <p>c′≡0(mod5)</p>
 <p>c′≡1(mod7)</p>
-<p>&#x3D;&gt;c′&#x3D;15m(可以看到m取1的时候满足c′≡1(mod7),即c′&#x3D;15)</p>
-<p>有了a′b′c′之后就可以得到 x&#x3D;2a′+3b′+2∗c′<br>代入a′b′c′之后就可以得到x的一个解及其通解</p>
-<p>x&#x3D;233+105t</p>
+<p>=&gt;c′=15m(可以看到m取1的时候满足c′≡1(mod7),即c′=15)</p>
+<p>有了a′b′c′之后就可以得到 x=2a′+3b′+2∗c′<br>代入a′b′c′之后就可以得到x的一个解及其通解</p>
+<p>x=233+105t</p>
 <p>以上面过程求通解的过程来证明</p>
-<p>直接令[a_1’&#x3D;1\pmod {m_1}]</p>
-<p>又令[k_1*M_1&#x3D;a_1’] </p>
-<p>​       [k_1&#x3D;a_1’*M_1^{-1}]  </p>
-<p>得到[x_1&#x3D;a_1<em>k_1</em>M_1&#x3D;a_1*a_1’*M_1^{-1}*M_1]</p>
-<p>而[a_1’&#x3D;1\pmod {m_1}]</p>
-<p>推出[x_1\pmod M \equiv a_1*M_1^{-1}*M_1]</p>
-<p>依次得到[x_i](1&lt;&#x3D;i&lt;&#x3D;k且k为整数）</p>
+<p>直接令[a_1’=1\pmod {m_1}]</p>
+<p>又令[k_1*M_1=a_1’] </p>
+<p>​       [k_1=a_1’*M_1^{-1}]  </p>
+<p>得到[x_1=a_1<em>k_1</em>M_1=a_1<em>a_1’</em>M_1^{-1}*M_1]</p>
+<p>而[a_1’=1\pmod {m_1}]</p>
+<p>推出[x_1\pmod M \equiv a_1<em>M_1^{-1}</em>M_1]</p>
+<p>依次得到[x_i](1&lt;=i&lt;=k且k为整数）</p>
 <p>[x≡x_1+x_2+…..x_i\equiv(a_1<em>M_1</em>M_1^{-1}+a_2<em>M_2</em>M_2^{-1}+…+a_k<em>M_k</em>M_k^{-1})modM]</p>
 
       
@@ -347,16 +351,12 @@
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
