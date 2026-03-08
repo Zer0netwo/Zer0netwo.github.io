@@ -24,13 +24,13 @@
 
   <meta name="description" content="记录笔者学习数论及其证明知识的过程。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数论学习">
+<meta property="og:title" content="数论四大定理及证明">
 <meta property="og:url" content="http://example.com/2026/03/07/title/index.html">
 <meta property="og:site_name" content="烟虚境">
 <meta property="og:description" content="记录笔者学习数论及其证明知识的过程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-07T09:01:14.000Z">
-<meta property="article:modified_time" content="2026-03-08T07:45:24.954Z">
+<meta property="article:modified_time" content="2026-03-08T13:24:28.908Z">
 <meta property="article:author" content="尘">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>数论学习 | 烟虚境</title>
+  <title>数论四大定理及证明 | 烟虚境</title>
   
 
 
@@ -185,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数论学习
+          数论四大定理及证明
         </h1>
 
         <div class="post-meta">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-03-08 15:45:24" itemprop="dateModified" datetime="2026-03-08T15:45:24+08:00">2026-03-08</time>
+                <time title="修改时间：2026-03-08 21:24:28" itemprop="dateModified" datetime="2026-03-08T21:24:28+08:00">2026-03-08</time>
               </span>
 
           
@@ -267,7 +267,7 @@
 \begin{aligned}
 &对于质数p，任意整数a，均满足：a^{p−1}≡1(modp)\\
 &拆开来看a^{p−2}*a≡1(modp),a^{p−2},就是a在模p下的逆元了\\
-\end{aligned}</script><h3 id="CRT"><a href="#CRT" class="headerlink" title="CRT"></a>CRT</h3><script type="math/tex; mode=display">
+\end{aligned}</script><h3 id="中国剩余定理（CRT）"><a href="#中国剩余定理（CRT）" class="headerlink" title="中国剩余定理（CRT）"></a>中国剩余定理（CRT）</h3><script type="math/tex; mode=display">
 \begin{aligned}
 &设正整数m_1,m_2…m_k两两互素，则同余方程组\\
 &x≡a_1\pmod {m_1}\\
@@ -332,7 +332,31 @@
 &依次得到x_i(1<=i<=k且k为整数）\\
 &x≡x_1+x_2+.....x_i\equiv(a_1*M_1*M_1^{-1}+a_2*M_2*M_2^{-1}+…+a_k*M_k*M_k^{-1})modM\\
 
-\end{aligned}</script>
+\end{aligned}</script><h3 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h3><p>设p是一个正整数，那么p是素数的充要条件是</p>
+<p>(p-1)!=-1(mod p)</p>
+<p>证明如下：</p>
+<p>首先证明必要性</p>
+<p>若p是素数，那么(p-1)!=-1(mod p)</p>
+<p>因为p-1=-1(mod p)</p>
+<p>所以只需证明2,3,…p-2的总乘积模p等于1</p>
+<p>由于p是奇素数，所以p-2是奇数，从2到p-2共有偶数个数</p>
+<p>我们需要用到以下两个证明工具</p>
+<ul>
+<li><p>对于素数 p，模 p 的缩系就是 {1,2,3,…,p−1}。（因为所有小于 p<em>p</em> 的正整数都与 p<em>p</em> 互质）。</p>
+</li>
+<li><p>对于缩系中的任意一个元素 a，存在唯一的 <em>a‘，使得 a⋅a’≡1(modp)</em>且 a’ 也在缩系中。</p>
+</li>
+</ul>
+<p>这下我们可以知道2,3,…p-2构成一个缩系，且其中两两配对能是对方在模p下的逆元。</p>
+<p>必要性证明成立</p>
+<p>然后来证明充分性</p>
+<p>使用反证法，假设p是不是一个素数</p>
+<p>当p=1是(1−1)!=0!=1，而 1≡0(mod1)，并不等于 −1≡0(mod 1)</p>
+<p>当p是合数，有p的最小素因子q，满足2&lt;=q&lt;=p-1,</p>
+<p>则q必定是1,2,…p-1中的某数，即p|(p-1)!</p>
+<p>根据已知条件(p-1)!=-1(mod p)，p|(p-1)!+1，矛盾</p>
+<p>假设不成立，充分性成立</p>
+
     </div>
 
     
@@ -357,7 +381,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/2026/03/07/title/" title="数论学习">http://example.com/2026/03/07/title/</a>
+    <a href="http://example.com/2026/03/07/title/" title="数论四大定理及证明">http://example.com/2026/03/07/title/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -442,7 +466,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">欧拉定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">费马小定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CRT"><span class="nav-number">3.</span> <span class="nav-text">CRT</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">欧拉定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%B9%E9%A9%AC%E5%B0%8F%E5%AE%9A%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">费马小定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86%EF%BC%88CRT%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">中国剩余定理（CRT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">威尔逊定理</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
