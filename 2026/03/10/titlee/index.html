@@ -30,7 +30,7 @@
 <meta property="og:description" content="之前学了点Coopersmith，但感觉似懂非懂，现在再学一遍后，很多知识有了新的理解。 也感谢网上一些详细易懂的资源！">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-03-10T09:12:49.000Z">
-<meta property="article:modified_time" content="2026-03-10T09:18:51.163Z">
+<meta property="article:modified_time" content="2026-03-22T14:46:23.448Z">
 <meta property="article:author" content="尘">
 <meta property="article:tag" content="Crypto">
 <meta name="twitter:card" content="summary">
@@ -194,10 +194,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2026-03-10 17:12:49 / 修改时间：17:18:51" itemprop="dateCreated datePublished" datetime="2026-03-10T17:12:49+08:00">2026-03-10</time>
+              <time title="创建时间：2026-03-10 17:12:49" itemprop="dateCreated datePublished" datetime="2026-03-10T17:12:49+08:00">2026-03-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2026-03-22 22:46:23" itemprop="dateModified" datetime="2026-03-22T22:46:23+08:00">2026-03-22</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -230,8 +236,10 @@
 </ol>
 <p>对于一个模n意义下的e阶多项式，Coopersmith方法可以求解得到两种根：</p>
 <script type="math/tex; mode=display">
-1. n^{1/e}以内的小根\\
-2. 给定b,得到模p意义下的小根，其中p>=n^b且为n的因数\\</script><p>也就是说，我们可以求出模多项式的一个小根。</p>
+\begin{aligned}
+&1. n^{1/e}以内的小根\\
+&2. 给定b,得到模p意义下的小根，其中p>=n^b且为n的因数\\
+\end{aligned}</script><p>也就是说，我们可以求出模多项式的一个小根。</p>
 <p>并且，如果题中给出一个模p的多项式，但没有给出p，直接模n也能得到结果。</p>
 <h4 id="题目1：m高位泄露"><a href="#题目1：m高位泄露" class="headerlink" title="题目1：m高位泄露"></a>题目1：m高位泄露</h4><p>假设m高位是m1,低位为x，</p>
 <p>根据c=m^e(mod n)</p>
@@ -243,74 +251,92 @@
 <p>但根据Coopersmith的第二条，我们可以构建一个模n多项式，这样不仅可以求解模n多项式的小根，还能求解n的因数的小根，此时需要满足p&gt;=n^b（知道p高位是p的位数约1/2就行）</p>
 <p>假设p_h为p高位，令p=p_h+x，</p>
 <script type="math/tex; mode=display">
-构造P(x)\equiv  p_h+x\pmod n</script><p> 如果x足够小，我们可以求出。</p>
+\begin{aligned}
+构造P(x)\equiv  p_h+x\pmod n
+\end{aligned}</script><p> 如果x足够小，我们可以求出。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Sage</span></span><br><span class="line">n = </span><br><span class="line">p4 =  <span class="comment">#p去0的剩余位</span></span><br><span class="line">pbits = <span class="number">1024</span></span><br><span class="line">kbits = pbits - p4.nbits()</span><br><span class="line"><span class="built_in">print</span>(p4.nbits())</span><br><span class="line">p4 = p4 &lt;&lt; kbits</span><br><span class="line">PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">f = x + p4</span><br><span class="line">roots = f.small_roots(X=<span class="number">2</span>^kbits, beta=<span class="number">0.4</span>)</span><br><span class="line"><span class="keyword">if</span> roots:        </span><br><span class="line">    p = p4 + <span class="built_in">int</span>(roots[<span class="number">0</span>])</span><br><span class="line">    q = n//p</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;n: <span class="subst">&#123;n&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;p: <span class="subst">&#123;p&#125;</span>&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;q: <span class="subst">&#123;q&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h4 id="题目3：d低位泄露"><a href="#题目3：d低位泄露" class="headerlink" title="题目3：d低位泄露"></a>题目3：d低位泄露</h4><p>首先我们知道一个条件</p>
 <ol>
 <li>在二进制里，一个数除以2^a的余数就是它的低a位<script type="math/tex; mode=display">
+\begin{aligned}
 因为：
 整数d可以写成d\equiv q*2^a+r  \\
 (0<=r<2^a)\\
-余数r正好就是低a位</script></li>
+余数r正好就是低a位
+\end{aligned}</script></li>
 </ol>
 <p>假设d_l为d的低位，且d_l位数为a位，有</p>
 <script type="math/tex; mode=display">
-d_l\equiv d\pmod {2^a}\\
-根据ed=1(mod phi_n),有ed=1+k*phi_n=1+k(n-p-n/p+1)\\展开得到edp-kp(n-p+1)+kn=p\\
+\begin{aligned}
+&d_l\equiv d\pmod {2^a}\\
+&根据ed=1(mod phi_n),有ed=1+k*phi_n=1+k(n-p-n/p+1)\\
+&展开得到edp-kp(n-p+1)+kn=p\\
 
-根据上面假设的条件，等式两边同时模2^a,得到ed_lp-kp(n-p+1)+kn=p(mod 2^a)\\</script><p>又因为ed=1+k<em>phi_n,ed约等于k </em>phi_n,而d&lt;phi_n,e也小，所以k必须小，猜测k和e差不多大，就得到k在[1,e)中，遍历得到k。</p>
+&根据上面假设的条件，等式两边同时模2^a,得到ed_lp-kp(n-p+1)+kn=p(mod 2^a)\\
+\end{aligned}</script><p>又因为ed=1+k<em>phi_n,ed约等于k </em>phi_n,而d&lt;phi_n,e也小，所以k必须小，猜测k和e差不多大，就得到k在[1,e)中，遍历得到k。</p>
 <p>然后只剩下一个未知数p，通过求解模多项式得到p。</p>
 <p>此时我们可以将左边看做一个整体为p_l,显然p_l为p的最低a位，也就是</p>
 <script type="math/tex; mode=display">
-p_l\equiv p\pmod {2^a}\\
-此时p=p_l+2^a*p_h\\
-构造模多项式f(x) = 2^\alpha x + p_l \bmod{n}\\
-利用Coopersmith方法得到解X即为p_h\\</script><h3 id="Rabin算法"><a href="#Rabin算法" class="headerlink" title="Rabin算法"></a>Rabin算法</h3><p>明白下面这些定理之后可以更好地理解rabin算法</p>
+\begin{aligned}
+&p_l\equiv p\pmod {2^a}\\
+&此时p=p_l+2^a*p_h\\
+&构造模多项式f(x) = 2^\alpha x + p_l \bmod{n}\\
+&利用Coopersmith方法得到解X即为p_h\\
+\end{aligned}</script><h3 id="Rabin算法"><a href="#Rabin算法" class="headerlink" title="Rabin算法"></a>Rabin算法</h3><p>明白下面这些定理之后可以更好地理解rabin算法</p>
 <h4 id="定理1：欧拉判别定理"><a href="#定理1：欧拉判别定理" class="headerlink" title="定理1：欧拉判别定理"></a>定理1：欧拉判别定理</h4><script type="math/tex; mode=display">
-c是模p的平方剩余的充要条件是,(c^{1/2})^{\phi (p)} \equiv 1\pmod p</script><p>证明充分性</p>
+\begin{aligned}
+c是模p的平方剩余的充要条件是,(c^{1/2})^{\phi (p)} \equiv 1\pmod p
+\end{aligned}</script><p>证明充分性</p>
 <script type="math/tex; mode=display">
-首先有前置知识\\
-由费马小定理知，d^{(p-1)} \equiv1\pmod p\\
-p为奇素数，p-1为偶数,上式可拆为(d^{(p-1)/2}-1)(d^{(p-1)/2}+1) \equiv0\pmod p\\
-由此可见
-d^{(p-1)/2}在模p下必然与1或-1同余\\
-即d^{(p-1)/2}\equiv1\pmod p\\
-然后来证明若d是模p的平方剩余,则(d^{1/2})^{\phi (p)} \equiv 1\pmod p\\
-**证明如下:**\\
-因为d是模p的平方剩余，所以存在x,使得x^2 \equiv d\pmod p\\
-d^{(p-1)/2} \equiv x^{p-1}\equiv1\pmod p显然成立</script><p>证明必要性(不太严谨)</p>
+\begin{aligned}
+&首先有前置知识\\
+&由费马小定理知，d^{(p-1)} \equiv1\pmod p\\
+&p为奇素数，p-1为偶数,上式可拆为(d^{(p-1)/2}-1)(d^{(p-1)/2}+1) \equiv0\pmod p\\
+&由此可见\\
+&d^{(p-1)/2}在模p下必然与1或-1同余\\
+&即d^{(p-1)/2}\equiv1\pmod p\\
+&然后来证明若d是模p的平方剩余,则(d^{1/2})^{\phi (p)} \equiv 1\pmod p\\
+&**证明如下:**\\
+&因为d是模p的平方剩余，所以存在x,使得x^2 \equiv d\pmod p\\
+&d^{(p-1)/2} \equiv x^{p-1}\equiv1\pmod p显然成立
+\end{aligned}</script><p>证明必要性(不太严谨)</p>
 <script type="math/tex; mode=display">
+\begin{aligned}
 若(d^{1/2})^{\phi (p)} \equiv 1\pmod p,则d是模p的平方剩余,\\
-首先必然存在x=1使得x^2\equiv d\pmod p成立，得证</script><h4 id="定理2："><a href="#定理2：" class="headerlink" title="定理2："></a>定理2：</h4><script type="math/tex; mode=display">
-二次同余式x^2 \equiv c\pmod p  1式\\
-的解是\\
-x=±c^{(p+1)/4}\pmod p\\
-**证明如下：**\\
-因为c和p互素，利用欧拉判别定理\\
-c是模p的平方剩余的充要条件是,(c^{1/2})^{\phi (p)} \equiv 1\pmod p\\
-所以c^{(p-1)/2}\equiv 1\pmod p 2式\\
-联立12式得到\\
-x^2\equiv c*(c^{1/2})^{p-1}\equiv c^{(p+1)/2}\equiv(c^{(p+1)/4})^2\\
-得到x=±c^{(p+1)/4}\pmod p\\</script><h4 id="定理3："><a href="#定理3：" class="headerlink" title="定理3："></a>定理3：</h4><p>如果整数c满足：</p>
+首先必然存在x=1使得x^2\equiv d\pmod p成立，得证
+\end{aligned}</script><h4 id="定理2："><a href="#定理2：" class="headerlink" title="定理2："></a>定理2：</h4><script type="math/tex; mode=display">
+\begin{aligned}
+&二次同余式x^2 \equiv c\pmod p  1式\\
+&的解是\\
+&x=±c^{(p+1)/4}\pmod p\\
+&**证明如下：**\\
+&因为c和p互素，利用欧拉判别定理\\
+&c是模p的平方剩余的充要条件是,(c^{1/2})^{\phi (p)} \equiv 1\pmod p\\
+&所以c^{(p-1)/2}\equiv 1\pmod p 2式\\
+&联立12式得到\\
+&x^2\equiv c*(c^{1/2})^{p-1}\equiv c^{(p+1)/2}\equiv(c^{(p+1)/4})^2\\
+&得到x=±c^{(p+1)/4}\pmod p\\
+\end{aligned}</script><h4 id="定理3："><a href="#定理3：" class="headerlink" title="定理3："></a>定理3：</h4><p>如果整数c满足：</p>
 <p>1) c为 p的平方剩余</p>
 <p>2) c为 q的平方剩余</p>
 <p>则：c 为 p*q的平方剩余</p>
 <script type="math/tex; mode=display">
-解 x为：x = \pm \left( c^{\frac{p+1}{4}} \pmod{p} \right) \cdot \left( q^{-1} \pmod{p} \right) \cdot q \pm \left( c^{\frac{q+1}{4}} \pmod{q} \right) \cdot \left( p^{-1} \pmod{q} \right) \cdot p \pmod{p \cdot q}\\
+\begin{aligned}
+&解 x为：x = \pm \left( c^{\frac{p+1}{4}} \pmod{p} \right) \cdot \left( q^{-1} \pmod{p} \right) \cdot q \pm \left( c^{\frac{q+1}{4}} \pmod{q} \right) \cdot \left( p^{-1} \pmod{q} \right) \cdot p \pmod{p \cdot q}\\
 
-**证明**\\
-二次同余式：x^2 \equiv c \pmod{p \cdot q}\\
-等价于同余式组：\\
-x^2 \equiv c \pmod{p} \quad \text{(1)}\\
-x^2 \equiv c \pmod{q} \quad \text{(2)}\\
-由定理2\\
+&**证明**\\
+&二次同余式：x^2 \equiv c \pmod{p \cdot q}\\
+&等价于同余式组：\\
+&x^2 \equiv c \pmod{p} \quad \text{(1)}\\
+&x^2 \equiv c \pmod{q} \quad \text{(2)}\\
+&由定理2\\
 
-(1) 式解为x \equiv \pm c^{\frac{p+1}{4}} \pmod{p}\\
-(2) 式解为x \equiv \pm c^{\frac{q+1}{4}} \pmod{q}\\
+&(1) 式解为x \equiv \pm c^{\frac{p+1}{4}} \pmod{p}\\
+&(2) 式解为x \equiv \pm c^{\frac{q+1}{4}} \pmod{q}\\
 
-由CRT，解为\\
-x \equiv \pm \left( c^{\frac{p+1}{4}} \pmod{p} \right) \cdot \left( q^{-1} \pmod{p} \right) \cdot q \pm \left( c^{\frac{q+1}{4}} \pmod{q} \right) \cdot \left( p^{-1} \pmod{q} \right) \cdot p \pmod{p \cdot q}</script><p>参考Van1sh的博客<a target="_blank" rel="noopener" href="https://jayxv.github.io">https://jayxv.github.io</a></p>
-<h4 id="Rabin加密"><a href="#Rabin加密" class="headerlink" title="Rabin加密"></a>Rabin加密</h4><p>已知p,q为私钥，n=p*q为公钥,密文c</p>
+&由CRT，解为\\
+&x \equiv \pm \left( c^{\frac{p+1}{4}} \pmod{p} \right) \cdot \left( q^{-1} \pmod{p} \right) \cdot q \pm \left( c^{\frac{q+1}{4}} \pmod{q} \right) \cdot \left( p^{-1} \pmod{q} \right) \cdot p \pmod{p \cdot q}
+\end{aligned}</script><h4 id="Rabin加密"><a href="#Rabin加密" class="headerlink" title="Rabin加密"></a>Rabin加密</h4><p>已知p,q为私钥，n=p*q为公钥,密文c</p>
 <p>​    c=m^2%n</p>
 <p>c=m^2%n等价于c=m^2%p,c=m^2%q</p>
 <p>根据上述定理3，用中国剩余定理解出m</p>
